@@ -361,7 +361,26 @@ class IPOPT(Optimizer):
             # # Uncategorized.
             # 'warm_start_target_mu' : [float, 0.0]
         }
-
+        def_opts = {
+            'output_file': [str, 'IPOPT.out'],
+            'option_file_name' : [str, "IPOPT_options.opt"],
+            'print_user_options' : [str, "no"],
+            'tol' : [float, 1e-06],
+            'max_iter' : [int, 100],
+            'max_cpu_time' : [float, 1e+06],
+            'dual_inf_tol' : [float, 1.0],
+            'constr_viol_tol' : [float, 0.0001],
+            'compl_inf_tol' : [float, 0.0001],
+            'acceptable_tol' : [float, 1e-06],
+            'acceptable_iter' : [int, 15],
+            'acceptable_dual_inf_tol' : [float, 1e+10],
+            'acceptable_constr_viol_tol' : [float, 0.01],
+            'acceptable_compl_inf_tol' : [float, 0.01],
+            'acceptable_obj_change_tol' : [float, 1e+20],
+            'diverging_iterates_tol' : [float, 1e+20],
+            'mu_target' : [float, 0.0],
+            'mu_strategy' : [str, "monotone"],
+        }
         informs = { # Don't have any of these yet either..
             }
 

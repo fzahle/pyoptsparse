@@ -50,7 +50,7 @@ def configuration(parent_package='',top_path=None):
         config.add_extension('pyipoptcore',
                              FILES,
                              library_dirs=[IPOPT_LIB],
-                             libraries=['ipopt', 'coinhsl', 'dl', 'm', 'blas', 'lapack'],
+                             libraries=['ipopt', 'blas','lapack','dl','m'],
                              extra_link_args=['-Wl,-rpath,%s -L%s'% (IPOPT_LIB, IPOPT_LIB)],
                              include_dirs=[numpy_include, IPOPT_INC])
     return config
