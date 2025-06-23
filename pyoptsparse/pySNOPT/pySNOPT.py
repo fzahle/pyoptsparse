@@ -430,7 +430,7 @@ class SNOPT(Optimizer):
 
             cw = numpy.empty((lencw, 8), 'c')
             iw = numpy.zeros(leniw, numpy.intc)
-            rw = numpy.zeros(lenrw, numpy.float)
+            rw = numpy.zeros(lenrw, float)
             snopt.sninit(iPrint, iSumm, cw, iw, rw)
 
             # Memory allocation
@@ -458,7 +458,7 @@ class SNOPT(Optimizer):
                     iw = numpy.zeros(leniw, numpy.intc)
                 if (minrw > lenrw):
                     lenrw = minrw
-                    rw = numpy.zeros(lenrw, numpy.float)
+                    rw = numpy.zeros(lenrw, float)
 
                 snopt.sninit(iPrint, iSumm, cw, iw, rw)
 
@@ -468,9 +468,9 @@ class SNOPT(Optimizer):
 
             # Setup argument list values
             start = numpy.array(self.options['Start'][1])
-            ObjAdd = numpy.array([0.], numpy.float)
-            ProbNm = numpy.array(self.optProb.name)
-            xs = numpy.concatenate((xs, numpy.zeros(ncon, numpy.float)))
+            ObjAdd = numpy.array([0.], float)
+            ProbNm = numpy.array(self.optProb.name, "c")
+            xs = numpy.concatenate((xs, numpy.zeros(ncon, float)))
             bl = numpy.concatenate((blx, blc))
             bu = numpy.concatenate((bux, buc))
             lencu = 1
@@ -478,20 +478,19 @@ class SNOPT(Optimizer):
             lenru = 3
             cu = numpy.array(["        "], 'c')
             iu = numpy.zeros(leniu, numpy.intc)
-            ru = numpy.zeros(lenru, numpy.float)
+            ru = numpy.zeros(lenru, float)
             hs = numpy.zeros(nvar+ncon, numpy.intc)
 
-            Names = numpy.array(["        "], 'c')
-            pi = numpy.zeros(ncon, numpy.float)
-            rc = numpy.zeros(nvar+ncon, numpy.float)
+            Names = numpy.array(["        "])
+            pi = numpy.zeros(ncon, float)
+            rc = numpy.zeros(nvar+ncon, float)
             inform = numpy.array([-1], numpy.intc)
             mincw = numpy.array([0], numpy.intc)
             miniw = numpy.array([0], numpy.intc)
             minrw = numpy.array([0], numpy.intc)
             nS = numpy.array([0], numpy.intc)
             ninf = numpy.array([0], numpy.intc)
-            sinf = numpy.array([0.], numpy.float)
-
+            sinf = numpy.array([0.], float)
             # Set history/hotstart
             self._setHistory(storeHistory, hotStart)
 
