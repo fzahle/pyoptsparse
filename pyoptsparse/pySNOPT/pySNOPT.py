@@ -106,8 +106,10 @@ class SNOPT(Optimizer):
         'Superbasics limit':[int,None], # (n1 + 1, n1 = number of nonlinear variables)
         'Derivative level':[int,3],     # (NOT ALLOWED IN snOptA)
         'Derivative option':[int,1],    # (ONLY FOR snOptA)
-        'Derivative linesearch':[type(None),None],
-        'Nonderivative linesearch':[type(None),None],
+        # 'Derivative linesearch':[type(None),None],
+        # 'Nonderivative linesearch':[type(None),None],
+        'Derivative linesearch':[int, 1],
+        'Nonderivative linesearch':[int, 0],
         'Function precision':[float,3.0e-13], # epsilon^0.8 (almost full accuracy)
         'Difference interval':[float,5.5e-7], # Function precision^(1/2)
         'Central difference interval':[float,6.7e-5], # Function precision^(1/3)
